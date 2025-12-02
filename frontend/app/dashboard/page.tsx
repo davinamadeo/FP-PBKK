@@ -122,7 +122,6 @@ export default function DashboardPage() {
             <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-2xl">
               📄
             </div>
-            <span className="text-sm text-green-600 font-semibold">+12%</span>
           </div>
           <h3 className="text-2xl font-bold text-gray-900">
             {stats.totalFiles}
@@ -135,7 +134,6 @@ export default function DashboardPage() {
             <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center text-2xl">
               📁
             </div>
-            <span className="text-sm text-green-600 font-semibold">+8%</span>
           </div>
           <h3 className="text-2xl font-bold text-gray-900">
             {stats.totalFolders}
@@ -148,7 +146,6 @@ export default function DashboardPage() {
             <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center text-2xl">
               🏷️
             </div>
-            <span className="text-sm text-green-600 font-semibold">+5%</span>
           </div>
           <h3 className="text-2xl font-bold text-gray-900">{stats.totalTags}</h3>
           <p className="text-gray-600 text-sm">Tags</p>

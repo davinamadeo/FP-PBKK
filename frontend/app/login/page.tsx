@@ -129,8 +129,10 @@ export default function LoginPage() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
-                placeholder="you@example.com"
+                className={`w-full px-4 py-3 border rounded-lg outline-none transition-all
+                  ${formData.email ? "bg-blue-50 text-black border-gray-300" : "bg-white text-gray-300 border-gray-300"}
+                  focus:ring-2 focus:ring-blue-500 focus:border-transparent
+                  `}
               />
             </div>
 
@@ -145,8 +147,10 @@ export default function LoginPage() {
                 value={formData.password}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
-                placeholder="••••••••"
+                className={`w-full px-4 py-3 border rounded-lg outline-none transition-all
+                  ${formData.password ? "bg-blue-50 text-black border-gray-300" : "bg-white text-gray-300 border-gray-300"}
+                  focus:ring-2 focus:ring-blue-500 focus:border-transparent
+                  `}
               />
             </div>
 
@@ -158,12 +162,6 @@ export default function LoginPage() {
                 />
                 <span className="text-sm text-gray-600">Remember me</span>
               </label>
-              <Link
-                href="/forgot-password"
-                className="text-sm text-blue-600 hover:text-blue-700 font-semibold"
-              >
-                Forgot password?
-              </Link>
             </div>
 
             <button
