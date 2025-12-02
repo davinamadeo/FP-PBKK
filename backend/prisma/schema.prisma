@@ -1,0 +1,63 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int       @id @default(autoincrement())
+  email     String    @unique
+  password  String
+  name      String?
+  role      String    @default("user")
+  files     File[]
+  folders   Folder[]
+  tags      Tag[]
+  createdAt DateTime  @default(now())
+}
+
+model Folder {
+  id        Int      @id @default(autoincrement())
+  name      String
+  ownerId   Int
+  owner     User     @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  files     File[]
+  createdAt DateTime @default(now())
+}
+
+model File {
+  id          Int       @id @default(autoincrement())
+  name        String
+  type        String
+  size        Int
+  path        String
+  folderId    Int?
+  folder      Folder?   @relation(fields: [folderId], references: [id], onDelete: SetNull)
+  ownerId     Int
+  owner       User      @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  tags        FileTag[]
+  createdAt   DateTime  @default(now())
+}
+
+model Tag {
+  id      Int       @id @default(autoincrement())
+  name    String
+  ownerId Int
+  owner   User      @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  files   FileTag[]
+  
+  @@unique([name, ownerId])
+}
+
+model FileTag {
+  fileId Int
+  tagId  Int
+
+  file File @relation(fields: [fileId], references: [id], onDelete: Cascade)
+  tag  Tag  @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([fileId, tagId])
+}
