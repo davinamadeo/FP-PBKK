@@ -1,4 +1,4 @@
-# 🚀 Digital Asset Manager (Google Drive Mini)
+# Digital Asset Manager (Google Drive Mini)
 
 Aplikasi manajemen aset digital berbasis web yang memungkinkan pengguna untuk menyimpan, mengorganisir, dan mengelola file digital dengan mudah. Dibangun dengan **NestJS** (Backend) dan **Next.js** (Frontend).
 
@@ -10,22 +10,7 @@ Aplikasi manajemen aset digital berbasis web yang memungkinkan pengguna untuk me
 
 ---
 
-## 📋 Daftar Isi
-
-- [Tentang Project](#-tentang-project)
-- [Fitur Utama](#-fitur-utama)
-- [Tech Stack](#-tech-stack)
-- [Struktur Project](#-struktur-project)
-- [Instalasi](#-instalasi)
-- [Konfigurasi Environment](#-konfigurasi-environment)
-- [Menjalankan Aplikasi](#-menjalankan-aplikasi)
-- [API Endpoints](#-api-endpoints)
-- [Screenshots](#-screenshots)
-- [Kontributor](#-kontributor)
-
----
-
-## 🎯 Tentang Project
+## Tentang Project
 
 **Digital Asset Manager** adalah aplikasi web yang terinspirasi dari Google Drive untuk mengelola file digital secara efisien. Aplikasi ini dikembangkan sebagai Final Project dengan memenuhi **6 requirement wajib**:
 
@@ -40,16 +25,15 @@ Aplikasi manajemen aset digital berbasis web yang memungkinkan pengguna untuk me
 
 ---
 
-## ⭐ Fitur Utama
+## Fitur Utama
 
-### 1. 🔐 Authentication (Login & Register)
+### 1. Authentication (Login & Register)
 - Registrasi akun dengan validasi email
 - Login menggunakan JWT (JSON Web Token)
 - Password di-hash menggunakan bcrypt
-- Role-based access: **Admin** dan **User**
 - Email notifikasi saat berhasil registrasi
 
-### 2. 📤 Upload File Digital
+### 2. Upload File Digital
 - Upload berbagai jenis file (PDF, Gambar, Dokumen)
 - Penyimpanan file di folder `/uploads`
 - Metadata tersimpan di database:
@@ -61,14 +45,14 @@ Aplikasi manajemen aset digital berbasis web yang memungkinkan pengguna untuk me
   - Pemilik file
 - Email notifikasi saat file berhasil di-upload
 
-### 3. 📁 Manajemen Folder (CRUD)
+### 3. Manajemen Folder (CRUD)
 - Membuat folder baru
 - Rename folder
 - Hapus folder beserta isinya
 - Pindahkan file antar folder
 - Folder bersifat privat per user
 
-### 4. 🔍 Search & Filtering
+### 4. Search & Filtering
 - **Search berdasarkan:**
   - Nama file
   - Deskripsi
@@ -79,13 +63,13 @@ Aplikasi manajemen aset digital berbasis web yang memungkinkan pengguna untuk me
   - Ukuran file (small/medium/large)
 - Pagination: `?page=1&limit=20`
 
-### 5. 🏷️ Tagging System
+### 5. Tagging System
 - Tambah multiple tags ke file
 - Hapus tag dari file
 - Cari file berdasarkan tag
 - Manajemen tag (CRUD)
 
-### 6. 👁️ Preview File
+### 6. Preview File
 - Preview gambar langsung di browser
 - PDF menggunakan embedded viewer
 - Informasi file lengkap:
@@ -94,19 +78,13 @@ Aplikasi manajemen aset digital berbasis web yang memungkinkan pengguna untuk me
   - Ukuran
   - Tags
 
-### 7. 👥 User Management (Admin)
-- Admin dapat melihat semua user
-- Kelola role user
-- Monitoring aktivitas
-
-### 8. 📧 Email Notifications
+### 8. Email Notifications
 - Email selamat datang saat register
 - Email notifikasi saat upload file
-- Template email dengan desain profesional
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Backend
 - **Framework:** NestJS
@@ -124,62 +102,7 @@ Aplikasi manajemen aset digital berbasis web yang memungkinkan pengguna untuk me
 
 ---
 
-## 📂 Struktur Project
-
-```
-digital-asset-manager/
-├── backend/
-│   ├── prisma/
-│   │   ├── schema.prisma
-│   │   └── dev.db
-│   ├── src/
-│   │   ├── auth/
-│   │   │   ├── auth.controller.ts
-│   │   │   ├── auth.service.ts
-│   │   │   ├── auth.module.ts
-│   │   │   ├── jwt.strategy.ts
-│   │   │   ├── jwt.guard.ts
-│   │   │   └── dto/
-│   │   │       ├── login.dto.ts
-│   │   │       └── register.dto.ts
-│   │   ├── files/
-│   │   │   ├── files.controller.ts
-│   │   │   ├── files.service.ts
-│   │   │   └── files.module.ts
-│   │   ├── folders/
-│   │   │   ├── folders.controller.ts
-│   │   │   ├── folders.service.ts
-│   │   │   └── folders.module.ts
-│   │   ├── tags/
-│   │   │   ├── tags.controller.ts
-│   │   │   ├── tags.service.ts
-│   │   │   └── tags.module.ts
-│   │   ├── mail/
-│   │   │   ├── mail.service.ts
-│   │   │   └── mail.module.ts
-│   │   ├── prisma/
-│   │   │   ├── prisma.service.ts
-│   │   │   └── prisma.module.ts
-│   │   ├── app.module.ts
-│   │   └── main.ts
-│   ├── uploads/
-│   ├── .env
-│   └── package.json
-│
-├── frontend/
-│   ├── src/
-│   │   ├── app/
-│   │   ├── components/
-│   │   └── lib/
-│   ├── .env.local
-│   └── package.json
-│
-└── README.md
-```
-
----
-
-## 💻 Instalasi
+## Instalasi
 
 ### Prerequisites
 - Node.js v18+
@@ -217,7 +140,7 @@ npx prisma generate
 
 ---
 
-## ⚙️ Konfigurasi Environment
+## Konfigurasi Environment
 
 ### Backend (`backend/.env`)
 
@@ -246,11 +169,11 @@ NODE_ENV=development
 NEXT_PUBLIC_API_URL=http://localhost:3001
 ```
 
-> **⚠️ Catatan:** Untuk Gmail, gunakan App Password. Aktifkan 2FA terlebih dahulu di Google Account.
+> **Catatan:** Untuk Gmail, gunakan App Password. Aktifkan 2FA terlebih dahulu di Google Account.
 
 ---
 
-## 🚀 Menjalankan Aplikasi
+## Menjalankan Aplikasi
 
 ### Development Mode
 
@@ -268,23 +191,9 @@ npm run dev
 ```
 Aplikasi berjalan di `http://localhost:3000`
 
-### Production Mode
-
-```bash
-# Backend
-cd backend
-npm run build
-npm run start:prod
-
-# Frontend
-cd frontend
-npm run build
-npm run start
-```
-
 ---
 
-## 📡 API Endpoints
+## API Endpoints
 
 ### Authentication
 | Method | Endpoint | Deskripsi |
@@ -322,19 +231,19 @@ npm run start
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
-### Login Page
-![Login](screenshots/login.png)
+### Landing page
+<img width="2556" height="1468" alt="image" src="https://github.com/user-attachments/assets/3338ba73-d6a2-4e42-93be-90643a6f7b03" />  
 
 ### Dashboard
-![Dashboard](screenshots/dashboard.png)
+<img width="2559" height="1465" alt="image" src="https://github.com/user-attachments/assets/d7661236-a147-4092-87a9-bb34347c863d" />  
 
 ### File Manager
-![Files](screenshots/files.png)
+<img width="2559" height="1469" alt="image" src="https://github.com/user-attachments/assets/054828cb-5950-40c4-98c1-8125f9475174" />  
 
 ### Upload Modal
-![Upload](screenshots/upload.png)
+<img width="2559" height="1469" alt="image" src="https://github.com/user-attachments/assets/693e8dbf-b2bd-436b-8172-0821230c1e8d" />
 
 ---
 
